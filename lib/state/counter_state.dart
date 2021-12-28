@@ -9,7 +9,9 @@ class CounterState extends StateNotifier<int> {
   Ref ref;
   CounterState(this.ref) : super(0);
 
+  /// Increment Counter after some arbitrary http request
   Future<int> incrementCounter() async {
+    // Send out a request
     final Response response = await ref.read(httpProvider).get(url200);
 
     // Just for testing purposes
